@@ -77,7 +77,7 @@ void connectMQTT() {
     snprintf(image,    sizeof(image),    "%u/image", id);
     snprintf(sleep,    sizeof(sleep),    "%u/sleep", id);
 
-    int batt = readBatteryPercent();
+    float batt = readBatteryVoltage();
 
     int versuche = 40;
     while (!mqtt.connected() && versuche-- > 0) {
@@ -149,6 +149,10 @@ void callback(char* topic, byte* payload, unsigned int length) {
         mqtt.publish(gnTopic, gnPayload);
 
         delay(500);
+
+        prefs.begin("error-code", false);
+        prefs.putUShort("error",0x00);
+        prefs.end();
 
         esp_sleep_enable_timer_wakeup((uint64_t)seconds * 1000000ULL);
         esp_deep_sleep_start(); 

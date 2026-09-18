@@ -4,9 +4,14 @@
 
 Preferences prefs;
 
+//String ssid = "";
+//String password = "";
+//String mqttserver = "192.168.103.200";
+
 String ssid = "";
 String password = "";
-String mqttserver = "";
+String mqttserver = "192.168.133.50";
+
 uint16_t mqttport = 1883;
 uint16_t id = 0x0A;
 uint16_t errorcode = 0x00;

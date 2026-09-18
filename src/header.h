@@ -22,4 +22,5 @@ void connectMQTT(void);
 bool loadMQTTData();
 
 //battery.cpp
-int readBatteryPercent(void);
+float readBatteryVoltage(void);
+void    initBatteryADC(void);

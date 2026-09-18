@@ -18,6 +18,8 @@ void setup() {
     epd_poweron();
     //EPD_Clear();
 
+    initBatteryADC();
+
     connectWifi();
     connectMQTT();
 }
